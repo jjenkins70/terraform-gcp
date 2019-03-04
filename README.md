@@ -3,8 +3,8 @@ This document is a sample terraform setup that will create 1 GCS bucket, 1 VPC n
 
 More will be added as I continue to learn / play with terraform.
 
-## This folder GCP-LinuxAcademy is my attempt to recreate their lessons (based on AWS) to GCP
-## centric world.
+This folder GCP-LinuxAcademy is my attempt to recreate their lessons (based on AWS) to GCP
+centric world.
 
 
 ## STATUS: 3/4/19 
