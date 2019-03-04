@@ -6,7 +6,7 @@ provider "google" {
   region  = "${var.region}"
 }
 
-## Work in terraform gcp
+## Keep terraform statefile on GCP
 terraform {
   backend "gcs" {
     bucket = "jj-terraform-course-state"

@@ -1,32 +1,5 @@
 #-----compute/main.tf 
 
-/* EXAMPLE
-data "google_compute_instance" "appserver" {
-	name = "primary-app-server"
-	zone = "us-central1-a"
-}
-*/
-
-/*
-## FORCING DELAY
-resource "null_resource" "before" {
-}
-
-resource "null_resource" "delay" {
-	provisioner "local-exec" {
-		command = "sleep 300"
-	}
-	triggers = {
-		"before" = "${null_resource.before.id}"
-	}
-}
-
-resource "null_resource" "after" {
-	depends_on = ["null_resource.delay"]
-}
-## END FORCED DELAY
-*/
-
 data "google_compute_image" "my_image" {
   family  = "debian-9"
   project = "debian-cloud"
@@ -50,11 +23,7 @@ resource "google_compute_instance" "default" {
   }
 
   network_interface {
-    #network = "default"
-    #subnetwork = "${var.project_name}-subnet"
-	subnetwork = "${element(var.public_subnet, count.index)}"
-    #subnetwork = "${var.public_subnet}"
-     #subnetwork = "us-east4/jjs-sandbox-subnet"
+    subnetwork = "${element(var.public_subnet, count.index)}"
 
     access_config {
       ## ephemeral ip
